@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sample from '../modules/sample';
+import todos from '../modules/todos';
 
 const store = configureStore({
-  reducer: { sample },
+  reducer: todos,
 });
 
 export default store;
