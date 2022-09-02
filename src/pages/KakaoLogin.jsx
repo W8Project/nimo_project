@@ -4,7 +4,6 @@ import axios from "axios";
 
 const KakaoLogin = () => {
   const code = new URL(window.location.href).searchParams.get("code");
-  console.log(code);
 
   // useEffect(() => {
   //   const kakao = async () => {
