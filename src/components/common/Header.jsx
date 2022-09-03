@@ -1,12 +1,31 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
+import { useCounter } from "../../pages/CheckIn";
 
-const Header = () => {
+const Header = (start, stop) => {
   const [isLogin, setIsLogin] = useState(false);
+  const { count } = useCounter(0, 1000);
+  const [currentHours, setCurrentHours] = useState(0);
+  const [currentMinutes, setCurrentMinutes] = useState(0);
+  const [currentSeconds, setCurrentSeconds] = useState(0);
+
+  // 타이머 기능
+  const timer = () => {
+    const checkMinutes = Math.floor(count / 60);
+    const hours = Math.floor(count / 3600);
+    const minutes = checkMinutes % 60;
+    const seconds = count % 60;
+
+    setCurrentHours(hours);
+    setCurrentMinutes(minutes);
+    setCurrentSeconds(seconds);
+  };
 
   const onClick = () => {
     setIsLogin(!isLogin);
   };
+  useEffect(timer, [count]);
   return (
     <HeaderContainer>
       <HeaderLogoContainer>
@@ -14,8 +33,13 @@ const Header = () => {
       </HeaderLogoContainer>
       {isLogin ? (
         <HeaderTimerContainer>
-          <HeaderTimerBall />
-          <HeaderTimer>00:00:00</HeaderTimer>
+          <HeaderTimer>
+            <h1>
+              {currentHours < 10 ? `0${currentHours}` : currentHours} :
+              {currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes} :
+              {currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}
+            </h1>
+          </HeaderTimer>
           {/* <CheckIn /> */}
         </HeaderTimerContainer>
       ) : (
@@ -79,13 +103,6 @@ const HeaderTimerContainer = styled.div`
   height: 100%;
 `;
 
-const HeaderTimerBall = styled.div`
-  width: 33px;
-  height: 33px;
-  background-color: #b00000;
-  border-radius: 9999px;
-  margin-right: 14px;
-`;
 const HeaderTimer = styled.span`
   color: #fff;
   font-size: 32px;

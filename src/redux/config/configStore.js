@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sample from '../modules/sample';
+import todos from "../modules/todos";
+import timer from "../modules/timer";
 
 const store = configureStore({
-  reducer: { sample },
+  reducer: todos,
+  timer,
 });
 
 export default store;
