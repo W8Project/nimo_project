@@ -2,52 +2,20 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useCounter } from "../../pages/CheckIn";
+import Main from "../../pages/Main";
 
-const Header = (start, stop) => {
+const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const { count } = useCounter(0, 1000);
-  const [currentHours, setCurrentHours] = useState(0);
-  const [currentMinutes, setCurrentMinutes] = useState(0);
-  const [currentSeconds, setCurrentSeconds] = useState(0);
 
-  // 타이머 기능
-  const timer = () => {
-    const checkMinutes = Math.floor(count / 60);
-    const hours = Math.floor(count / 3600);
-    const minutes = checkMinutes % 60;
-    const seconds = count % 60;
-
-    setCurrentHours(hours);
-    setCurrentMinutes(minutes);
-    setCurrentSeconds(seconds);
-  };
-
-  const onClick = () => {
-    setIsLogin(!isLogin);
-  };
-  useEffect(timer, [count]);
   return (
     <HeaderContainer>
       <HeaderLogoContainer>
         <HeaderLogo>Logo</HeaderLogo>
       </HeaderLogoContainer>
-      {isLogin ? (
-        <HeaderTimerContainer>
-          <HeaderTimer>
-            <h1>
-              {currentHours < 10 ? `0${currentHours}` : currentHours} :
-              {currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes} :
-              {currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}
-            </h1>
-          </HeaderTimer>
-          {/* <CheckIn /> */}
-        </HeaderTimerContainer>
-      ) : (
-        <HeaderLoginContainer>
-          <HeaderLoginButton onClick={onClick}>Log in</HeaderLoginButton>
-          <HeaderSigninButton>Sign in</HeaderSigninButton>
-        </HeaderLoginContainer>
-      )}
+      <HeaderTimerContainer>
+        <HeaderTimer></HeaderTimer>
+        {/* <CheckIn /> */}
+      </HeaderTimerContainer>
     </HeaderContainer>
   );
 };

@@ -23,8 +23,8 @@ const Router = () => {
           <Route path="/login/kakaoLogin" element={<KakaoLogin />} />
           <Route path="/login/naverLogin" element={<NaverLogin />} />
           <Route path="/login/googleLogin" element={<GoogleLogin />} />
-          <Route path="test" element={<Test />} />
         </Route>
+        <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );
