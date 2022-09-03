@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ReactComponent as ProfileIcon } from "../../image/icon/ProfileIcon.svg";
 
 const ProfileSidebar = () => {
   const [show, setShow] = useState(false);
@@ -15,12 +16,20 @@ const ProfileSidebar = () => {
           </ProfileBox>
         </ProfileLayer>
       </ProfileSide>
-      <ProfileIconBox></ProfileIconBox>
+      <ProfileIconBox>
+        <Profile />
+      </ProfileIconBox>
     </div>
   );
 };
 
 export default ProfileSidebar;
+
+const Profile = styled(ProfileIcon)`
+  position: absolute;
+  right: 15px;
+  top: 33px;
+`;
 
 const ProfileSide = styled.div`
   position: absolute;
@@ -55,11 +64,12 @@ const ProfileLayer = styled.div`
 `;
 
 const ProfileBox = styled.div`
-  border: solid red 1px;
-  position: absolute;
+  box-sizing: border-box;
+  padding: 21px;
   width: 335px;
   height: 394px;
-  padding: 20px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    #264b7e;
 `;
 
 const ProfileImg = styled.div`
@@ -82,13 +92,15 @@ const PlayerName = styled.div`
   line-height: 24px;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
-  margin: 14px auto;
+  margin: auto;
+  margin-top: 10%;
 `;
 
 const PlayerMSG = styled.div`
-  width: 289px;
+  width: 250px;
   height: 87px;
   background: rgba(217, 217, 217, 0.4);
   border-radius: 30px;
-  margin: 40px auto;
+  margin: auto;
+  margin-top: 10%;
 `;
