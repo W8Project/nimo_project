@@ -7,6 +7,7 @@ import KakaoLogin from "../pages/KakaoLogin";
 import NaverLogin from "../pages/NaverLogin";
 import GoogleLogin from "../pages/GoogleLogin";
 import Login from "../pages/Login";
+import Test from "../pages/Test";
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
           <Route path="/login/kakaoLogin" element={<KakaoLogin />} />
           <Route path="/login/naverLogin" element={<NaverLogin />} />
           <Route path="/login/googleLogin" element={<GoogleLogin />} />
+          <Route path="test" element={<Test />} />
         </Route>
       </Routes>
     </BrowserRouter>

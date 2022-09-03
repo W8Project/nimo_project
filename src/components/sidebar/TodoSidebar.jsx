@@ -1,66 +1,68 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as BurgerIcon } from "../../image/icon/BurgerIcon.svg";
+import { ReactComponent as PlusIcon } from "../../image/icon/PlusIcon.svg";
 
-const BurgerSidebar = () => {
+const TodoSidebar = () => {
   const [show, setShow] = useState(false);
   return (
     <div onClick={() => setShow(!show)}>
-      <BurgerSide>
-        <BurgerLayer show={show}>
-          <BugerBox></BugerBox>
-        </BurgerLayer>
-      </BurgerSide>
-      <BurgerIconBox>
-        <Burger />
-      </BurgerIconBox>
+      <TodoSide>
+        <TodoLayer show={show}>
+          <TodoBox></TodoBox>
+        </TodoLayer>
+      </TodoSide>
+      <TodoIconBox>
+        <Plus />
+      </TodoIconBox>
     </div>
   );
 };
 
-export default BurgerSidebar;
+export default TodoSidebar;
 
-const Burger = styled(BurgerIcon)`
+const Plus = styled(PlusIcon)`
   position: absolute;
-  right: 15px;
+  left: 15px;
   top: 33px;
 `;
 
-const BurgerSide = styled.div`
+const TodoSide = styled.div`
   position: absolute;
   width: 24px;
-  height: 554px;
-  left: 0px;
-  top: 467px;
+  height: 394px;
+  left: calc(100% - 24px);
+  top: 65px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     #264b7e;
 `;
 
-const BurgerIconBox = styled.div`
+const TodoIconBox = styled.div`
   position: absolute;
   width: 112px;
   height: 98px;
-  left: -56px;
-  top: 632px;
+  left: calc(100% - 60px);
+  top: 172px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     #264b7e;
   border-radius: 40px;
 `;
 
-const BurgerLayer = styled.div`
+const TodoLayer = styled.div`
   position: absolute;
   width: 359px;
-  height: 554px;
+  height: 394px;
   transition: all 0.5s;
   z-index: 1;
-  left: ${({ show }) => (show ? "0px" : "-359px")};
+  left: ${({ show }) => (show ? "24px" : "-335px")};
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     #264b7e;
 `;
-
-const BugerBox = styled.div`
+const TodoBox = styled.div`
+  border: solid red 1px;
+  box-sizing: border-box;
   width: 335px;
-  height: 554px;
+  height: 394px;
+  margin-left: 24px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     #264b7e;
 `;
