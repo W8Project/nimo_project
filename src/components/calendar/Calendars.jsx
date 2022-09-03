@@ -15,13 +15,10 @@ const Calendars = () => {
 
   const { todos } = useSelector((state) => state.todos);
 
-  console.log("투두", todos);
-
   const [value, onChange] = useState(new Date());
-  console.log(value);
-  const [show, setShow] = useState(false);
 
   const [todo, setTodo] = useState("");
+
   const [editTodoContent, setEditTodoContent] = useState("");
 
   const todoList = {
@@ -48,7 +45,7 @@ const Calendars = () => {
   };
 
   useEffect(() => {
-    dispatch(getTodo(moment(value).format("YYYY-MM")));
+    // dispatch(getTodo(moment(value).format("YYYY-MM")));
   }, []);
 
   return (
@@ -61,38 +58,38 @@ const Calendars = () => {
           formatDay={(locale, date) => moment(date).format("DD")}
           tileContent={({ date, view }) => {
             let html = [];
-            {
-              todos.map((list) =>
-                list.selectDate === moment(date).format("YYYY년 MM월 DD일") &&
-                list.success === false
-                  ? html.push(
-                      <div
-                        style={{
-                          height: "8px",
-                          width: "8px",
-                          backgroundColor: "red",
-                        }}
-                      ></div>
-                    )
-                  : null
-              );
-            }
-            {
-              todos.map((list) =>
-                list.selectDate === moment(date).format("YYYY년 MM월 DD일") &&
-                list.success === true
-                  ? html.push(
-                      <div
-                        style={{
-                          height: "8px",
-                          width: "8px",
-                          backgroundColor: "green",
-                        }}
-                      ></div>
-                    )
-                  : null
-              );
-            }
+            // {
+            //   todos.map((list) =>
+            //     list.selectDate === moment(date).format("YYYY년 MM월 DD일") &&
+            //     list.success === false
+            //       ? html.push(
+            //           <div
+            //             style={{
+            //               height: "8px",
+            //               width: "8px",
+            //               backgroundColor: "red",
+            //             }}
+            //           ></div>
+            //         )
+            //       : null
+            //   );
+            // }
+            // {
+            //   todos.map((list) =>
+            //     list.selectDate === moment(date).format("YYYY년 MM월 DD일") &&
+            //     list.success === true
+            //       ? html.push(
+            //           <div
+            //             style={{
+            //               height: "8px",
+            //               width: "8px",
+            //               backgroundColor: "green",
+            //             }}
+            //           ></div>
+            //         )
+            //       : null
+            //   );
+            // }
 
             return (
               <>
@@ -116,7 +113,7 @@ const Calendars = () => {
           />
           <button type="submit">등록</button>
         </form>
-        {todos.map((list) => (
+        {/* {todos.map((list) => (
           <div key={list.id}>
             {list.selecteDate === moment(value).format("YYYY년 MM월 DD일") ? (
               <div>
@@ -137,7 +134,7 @@ const Calendars = () => {
               </div>
             ) : null}
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
