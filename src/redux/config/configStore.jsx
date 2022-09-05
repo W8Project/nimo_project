@@ -4,7 +4,11 @@ import timer from "../modules/timer";
 
 const store = configureStore({
   reducer: todos,
-  timer,
+  reducer: timer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;
