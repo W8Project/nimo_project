@@ -17,14 +17,12 @@ const Router = () => {
           <Route path="/intro" element={<Intro />} />
           <Route path="/main" element={<Main />} />
         </Route>
-
         {/* 로그인 페이지 */}
-        <Route path="/login" element={<Login />}>
-          <Route path="/login/kakaoLogin" element={<KakaoLogin />} />
-          <Route path="/login/naverLogin" element={<NaverLogin />} />
-          <Route path="/login/googleLogin" element={<GoogleLogin />} />
-          <Route path="test" element={<Test />} />
-        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="kakaoLogin" element={<KakaoLogin />} />
+        <Route path="naverLogin" element={<NaverLogin />} />
+        <Route path="googleLogin" element={<GoogleLogin />} />
+        <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );

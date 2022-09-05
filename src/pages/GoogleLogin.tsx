@@ -2,18 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const NaverLogin = () => {
+const GoogleLogin = () => {
   const code = new URL(window.location.href).searchParams.get("code");
-  const state = new URL(window.location.href).searchParams.get("state");
   console.log(code);
-  console.log(state);
-
   useEffect(() => {
-    const naver = async () => {
+    const google = async () => {
       return await axios
-        .get(
-          `http://43.200.115.252/api/v1/members/naverLogin?code=${code}&state=${state}`
-        )
+        .get(`http://43.200.115.252/api/v1/members/googleLogin?code=${code}`)
         .then((res) => console.log(res));
       // .then(() => {
       //   navigate("/projectList");
@@ -23,7 +18,7 @@ const NaverLogin = () => {
       // });
     };
     if (code) {
-      naver(code);
+      google(code);
     }
   }, [
     code,
@@ -32,4 +27,4 @@ const NaverLogin = () => {
   return <div>로딩페이지컴포넌트</div>;
 };
 
-export default NaverLogin;
+export default GoogleLogin;

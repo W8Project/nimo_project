@@ -4,6 +4,7 @@ import NimoTail from "../image/nimo/NimoTail.svg";
 import NimoBody from "../image/nimo/NimoBody.svg";
 import NimoHand from "../image/nimo/NimoHand.svg";
 import NimoHand2 from "../image/nimo/NimoHand2.svg";
+import HeadFish from "../components/fish/HeadFish";
 
 const Test = () => {
   return (
@@ -14,6 +15,7 @@ const Test = () => {
         <Hand src={NimoHand} />
         <Hand2 src={NimoHand2} />
       </Nimo>
+      <HeadFish />
     </>
   );
 };
@@ -55,13 +57,23 @@ const animation3 = keyframes`
 `;
 
 const Nimo = styled.div`
-  position: relative;
-  left: 500px;
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  width: 20%;
+  height: 20%;
   border: solid blue 1px;
+  &:active {
+    img:first-child {
+      animation: ${animation} 0.4s ease-in-out infinite;
+    }
+    img {
+      animation: ${animation2} 0.3s ease-in-out infinite;
+    }
+    img:last-child {
+      animation: ${animation3} 0.3s ease-in-out infinite;
+    }
+  }
   img {
-    border: solid red 1px;
+    width: 100%;
     position: absolute;
   }
 `;
